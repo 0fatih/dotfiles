@@ -76,3 +76,6 @@ endif
 
 
 call togglebg#map("<F5>")
+
+
+nnoremap <F3> : NERDTreeToggle<CR>
