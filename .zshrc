@@ -113,3 +113,4 @@ source $ZSH/oh-my-zsh.sh
 
 [ -s "/home/fatih/.web3j/source.sh" ] && source "/home/fatih/.web3j/source.sh"
 
+alias vim="nvim"
