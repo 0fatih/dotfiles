@@ -32,163 +32,111 @@ set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-let g:delimitMate_expand_cr = 2
 
-colorscheme molokai 
+call plug#begin("~/.vim/plugged")
+  " Theme
+  Plug 'dracula/vim'
 
-" PLUGINS ---------------------------------------------------------------- {{{
+  " Language Client
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+  " TypeScript Highlighting
+  Plug 'leafgarland/typescript-vim'
+  Plug 'peitalin/vim-jsx-typescript'
 
-" Plugin code goes here.
-call plug#begin('~/.vim/plugged')
 
-" HTML Tags
-Plug 'alvan/vim-closetag'
+  " File Explorer with Icons
+  Plug 'scrooloose/nerdtree'
+  Plug 'ryanoasis/vim-devicons'
 
-" Comment
-Plug 'tpope/vim-commentary'
+  " File Search
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
-"" Language supports
+  " For statusline"
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "Github extension"
+  Plug 'tpope/vim-fugitive'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  "wrapping is way easier with this plugin"
+  Plug 'tpope/vim-surround'
 
-"Plug 'neovim/nvim-lspconfig'
-"Plug 'hrsh7th/nvim-compe'
+  "Some cool shortcuts
+  Plug 'tpope/vim-rsi'
 
-"let g:compe                  = {}
-"let g:compe.autocomplete     = v:true
-"let g:compe.debug            = v:false
-"let g:compe.documentation    = v:true
-"let g:compe.enabled          = v:true
-"let g:compe.incomplete_delay = 400
-"let g:compe.max_abbr_width   = 80
-"let g:compe.max_kind_width   = 80
-"let g:compe.max_menu_width   = 80
-"let g:compe.min_length       = 1
-"let g:compe.preselect        = 'enable'
-"let g:compe.resolve_timeout  = 800
-"let g:compe.source           = {}
-"let g:compe.source.buffer    = v:true
-"let g:compe.source.calc      = v:true
-"let g:compe.source.emoji     = v:false
-"let g:compe.source.luasnip   = v:false
-"let g:compe.source.nvim_lsp  = v:true
-"let g:compe.source.nvim_lua  = v:true
-"let g:compe.source.path      = v:true
-"let g:compe.source.ultisnips = v:false
-"let g:compe.source.vsnip     = v:false
-"let g:compe.source_timeout   = 200
-"let g:compe.throttle_time    = 10
+  " Auto complete paranthesis
+  Plug 'Raimondi/delimitMate'
 
-"Nerdtree and it's plugins"
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Nerdtree and it's plugins"
-
-"For theme"
-"Plug 'mhartington/oceanic-next'
-Plug 'morhetz/gruvbox'
-autocmd vimenter * ++nested colorscheme gruvbox
-"For theme"
-
-"Good for commenting"
-Plug 'scrooloose/nerdcommenter'
-"Good for commenting"
-
-" For statusline"
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" For statusline"
-
-"Github extension"
-Plug 'tpope/vim-fugitive'
-"Github extension"
-
-"Some cool shortcuts
-Plug 'tpope/vim-rsi'
-
-"wrapping is way easier with this plugin"
-Plug 'tpope/vim-surround'
-"wrapping is way easier with this plugin"
-
-" Awesome for finding somethings
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-" Awesome for finding somethings
-
-" Auto complete paranthesis
-Plug 'Raimondi/delimitMate'
-" Auto complete paranthesis
-
-Plug 'wellle/targets.vim'
-
-"For languages 
-Plug 'tomlion/vim-solidity'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'rust-lang/rust.vim'
-Plug 'ap/vim-css-color'
-"For languages 
-
+  " Languages
+  Plug 'tomlion/vim-solidity'
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
-" }}}
-
-
-" MAPPINGS --------------------------------------------------------------- {{{
-
-" Mappings code goes here.
-
-inoremap jj <esc>
-
-nnoremap <leader>\ :noh
-
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
-nnoremap <silent> <c-Up> :resize -1<CR>
-nnoremap <silent> <c-Down> :resize +1<CR>
-nnoremap <silent> <c-left> :vertical resize -1<CR>
-nnoremap <silent> <c-right> :vertical resize +1<CR>
-
-nnoremap <F3> :NERDTreeToggle<cr>
-
-nnoremap <c-p> :Files<CR>
-" }}}
-
-
-" VIMSCRIPT -------------------------------------------------------------- {{{
-
-" This will enable code folding.
-" Use the marker method of folding.
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
-autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
-if version >= 703
-    set undodir=~/.vim/backup
-    set undofile
-    set undoreload=10000
+" Enable theming support
+if (has("termguicolors"))
+ set termguicolors
 endif
 
+" Theme
+syntax enable
+colorscheme dracula
 
-" More Vimscripts code goes here.
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeIgnore = []
+let g:NERDTreeStatusline = ''
 
-" }}}
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Toggle
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 
-" STATUS LINE ------------------------------------------------------------ {{{
+nnoremap <C-p> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+" requires silversearcher-ag
+" used to ignore gitignore files
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-" Status bar code goes here.
+" open new split panes to right and below
+set splitright
+set splitbelow
 
+" turn terminal to normal mode with escape
+tnoremap <Esc> <C-\><C-n>
+
+" use alt+hjkl to move between split/vsplit panels
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+" open terminal on ctrl+;
+" uses zsh instead of bash
+function! OpenTerminal()
+  split term://bash
+  resize 10
+endfunction
+nnoremap <c-n> :call OpenTerminal()<CR>
+
+" STATUS LINE
 set statusline=
 
 set statusline+=\ %F\ %M\ %Y\ %R
@@ -196,6 +144,3 @@ set statusline+=%=
 
 set statusline+=\ col:\ %c\ percent:\ %p%%
 set laststatus=2
-" }}}
-
-let g:airline_theme="luna"
