@@ -69,12 +69,18 @@ call plug#begin("~/.vim/plugged")
   " Auto complete paranthesis
   Plug 'Raimondi/delimitMate'
 
+  " better comments
+  Plug 'tpope/vim-commentary'
+
   " Languages
   Plug 'tomlion/vim-solidity'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'rust-lang/rust.vim'
+
+  " insterting brackets, parens, quotes in pair
+  Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -104,9 +110,6 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
-" requires silversearcher-ag
-" used to ignore gitignore files
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " open new split panes to right and below
 set splitright
@@ -144,3 +147,12 @@ set statusline+=%=
 
 set statusline+=\ col:\ %c\ percent:\ %p%%
 set laststatus=2
+
+" easy ESC
+inoremap jj <esc>
+
+" shortcut for :noh
+nnoremap <leader>\ :noh
+
+" nerd toggle
+nnoremap <F3> :NERDTreeToggle<cr>
