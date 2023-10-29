@@ -50,4 +50,13 @@ return require("packer").startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 
     use({ 'karb94/neoscroll.nvim' })
+
+    use({ 'm4xshen/autoclose.nvim' })
+    use({ 'preservim/nerdcommenter' })
+    use({ 'simrat39/symbols-outline.nvim'})
+
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    })
 end)
