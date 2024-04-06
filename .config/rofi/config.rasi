@@ -1,0 +1,22 @@
+configuration {
+    mode: [ combi ];
+    combi-modes: [ window, drun, run];
+}
+
+@theme "arthur"
+
+
+element {
+  orientation: horizontal;
+  children: [ element-text, element-icon ];
+  spacing: 5px;
+}
+
+element-icon {
+    size: 1.5em;
+}
+
+entry, element-text {
+    vertical-align: 0.5;
+    font: "Awasome 12";
+}
