@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require('config.globals')
 require('config.options')
 require('config.keymaps')
+require('config.autocmds')
 
 local opts = {
     defaults = {
@@ -25,16 +26,16 @@ local opts = {
 	colorscheme = { "nightfox" }
     },
     rtp = {
-	disabled_plugins = {
-	    "gzip",
-	    "matchit",
-	    "matchparen",
-	    "netrwPlugin",
-	    "tarPlugin",
-	    "tohtml",
-	    "tutor",
-	    "zipPlugin",
-    	},
+        disabled_plugins = {
+            "gzip",
+            "matchit",
+            "matchparen",
+            "netrwPlugin",
+            "tarPlugin",
+            "tohtml",
+            "tutor",
+            "zipPlugin",
+        },
     },
     change_detection = {
 	notify = true,
