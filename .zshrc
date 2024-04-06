@@ -108,4 +108,4 @@ fi
 alias copy="xclip -selection clipboard -i"
 alias lg="lazygit"
 
-exec picom -b
+feh --randomize --bg-scale ~/Pictures/wp/*

@@ -1,6 +1,10 @@
-import = [
-    "~/.config/alacritty/catppuccin-mocha.toml"
-]
-
 [font]
-size = 8.0
+size = 7.0
+normal = { family = "Mononoki Nerd Font", style = "Extralight" }
+bold = { family = "Mononoki Nerd Font", style = "Light" }
+italic = { family = "Mononoki Nerd Font", style = "Extra Light Italic" }
+bold_italic = { family = "Mononoki Nerd Font", style = "Light Italic" }
+
+[window]
+opacity = 0.75
+

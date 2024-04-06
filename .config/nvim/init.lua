@@ -1,1 +1,1 @@
-require("0fatih")
+require('config')
