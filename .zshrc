@@ -109,3 +109,5 @@ alias copy="xclip -selection clipboard -i"
 alias lg="lazygit"
 
 feh --randomize --bg-scale ~/Pictures/wp/*
+
+alias "change-bg"="feh --randomize --bg-scale ~/Pictures/wp/*"
