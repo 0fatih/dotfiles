@@ -191,5 +191,5 @@ bar {
 	tray_output none
 	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m network getcrypto amixer weather cpu memory battery date time \
 		-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" getcrypto.getltc=0 \
-		-t solarized-powerline
+		-t iceberg-contrast
 }
