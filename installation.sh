@@ -1,7 +1,7 @@
 sudo apt update &&
 
 # Install general requirements
-sudo apt install libfontconfig1-dev libfontconfig neovim fontconfig pkg-config cmake rofi zsh python-pip iw snap feh &&
+sudo apt install libfontconfig1-dev libfontconfig neovim fontconfig pkg-config cmake rofi zsh python-pip iw snap feh picom &&
 
 # Install neovim
 sudo snap install nvim --classic &&
@@ -33,4 +33,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash 
 
 nvm install stable && nvm use stable &&
 
-sudo snap install lazygit
+# Install lazygit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
