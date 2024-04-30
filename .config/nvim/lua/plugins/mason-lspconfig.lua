@@ -2,7 +2,9 @@ local opts = {
     ensure_installed = {
         "efm",
         "lua_ls",
-        "rust_analyzer"
+        "rust_analyzer",
+        "solidity",
+        "gopls"
     },
     automatic_installation = true,
 }
