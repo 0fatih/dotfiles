@@ -13,6 +13,12 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
+	-- rust
+	lspconfig.rust_analyzer.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
 	-- lua
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,

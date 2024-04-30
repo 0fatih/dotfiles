@@ -1,7 +1,7 @@
 sudo apt update &&
 
 # Install general requirements
-sudo apt install libfontconfig1-dev libfontconfig neovim fontconfig pkg-config cmake rofi zsh python-pip iw snap feh picom ripgrep tmux &&
+sudo apt install libfontconfig1-dev libfontconfig neovim fontconfig pkg-config cmake rofi zsh python-pip iw snap feh picom ripgrep tmux luarocks &&
 
 # Install neovim
 sudo snap install nvim --classic &&
@@ -52,4 +52,7 @@ echo \
 sudo apt-get update &&
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin &&
 sudo groupadd docker &&
-sudo usermod -aG docker $USER
+sudo usermod -aG docker $USER &&
+
+# Nvim & lua
+cargo install stylua &&
