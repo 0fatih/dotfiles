@@ -1,7 +1,7 @@
 sudo apt update &&
 
 # Install general requirements
-sudo apt install libfontconfig1-dev libfontconfig neovim fontconfig pkg-config cmake rofi zsh python-pip iw snap feh picom &&
+sudo apt install libfontconfig1-dev libfontconfig neovim fontconfig pkg-config cmake rofi zsh python-pip iw snap feh picom ripgrep &&
 
 # Install neovim
 sudo snap install nvim --classic &&
