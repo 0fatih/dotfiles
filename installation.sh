@@ -1,3 +1,5 @@
+#!/bin/sh
+
 sudo apt update &&
 
 # Install general requirements
@@ -52,7 +54,17 @@ echo \
 sudo apt-get update &&
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin &&
 sudo groupadd docker &&
-sudo usermod -aG docker $USER &&
+sudo usermod -aG docker "$USER" &&
 
 # Nvim & lua
 cargo install stylua &&
+python3 -m pip install flake8 &&
+pip install git+https://github.com/psf/black &&
+npm install -g fixjson &&
+sudo apt install shellcheck &&
+go install mvdan.cc/sh/v3/cmd/shfmt@latest &&
+wget https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+chmod +x hadolint-Linux-x86_64 &&
+sudo mv hadolint-Linux-x86_64 /usr/bin/hadolint &&
+pip install cpplint &&
+sudo apt install clang-format
