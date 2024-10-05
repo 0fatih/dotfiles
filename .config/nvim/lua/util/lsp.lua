@@ -14,7 +14,7 @@ M.on_attach = function(client, bufnr)
 	mapkey("<leader>d", "Lspsaga show_cursor_diagnostics", "n", opts) -- show diagnostics for cursor
 	mapkey("<leader>pd", "Lspsaga diagnostic_jump_prev", "n", opts) -- jump to prev diagnostic in buffer
 	mapkey("<leader>nd", "Lspsaga diagnostic_jump_next", "n", opts) -- jump to next diagnostic in buffer
-	mapkey("<leader>t", "Lspsaga term_toggle", "n", opts) -- toggle terminal
+	mapkey("<leader>q", "Lspsaga term_toggle", "n", opts) -- toggle terminal
 	mapkey("<leader>o", "Lspsaga outline", "n", opts) -- toggle terminal
 	mapkey("K", "Lspsaga hover_doc", "n", opts) -- show documentation for what is under cursor
 

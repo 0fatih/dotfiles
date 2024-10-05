@@ -105,9 +105,11 @@ local config = function()
 					["<C-j>"] = "move_selection_next",
 					["<C-k>"] = "move_selection_previous",
 					["<C-s>"] = document_symbols_for_selected,
+					["<C-d>"] = "delete_buffer",
 				},
 				n = {
 					["<C-s>"] = document_symbols_for_selected,
+					["<C-d>"] = "delete_buffer",
 				},
 			},
 		},
