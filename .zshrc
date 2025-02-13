@@ -82,10 +82,6 @@ plugins=(
     colored-man-pages
     colorize
     history
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    you-should-use
-    zsh-bat
 )
 
 source $ZSH/oh-my-zsh.sh

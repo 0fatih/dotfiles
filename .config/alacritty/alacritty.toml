@@ -1,9 +1,22 @@
+[general]
+import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+live_config_reload = true
+
 [font]
-size = 10.0
+size = 17.0
 normal = { family = "Mononoki Nerd Font", style = "Regular" }
 bold = { family = "Mononoki Nerd Font", style = "Bold" }
 italic = { family = "Mononoki Nerd Font", style = "Italic" }
 bold_italic = { family = "Mononoki Nerd Font", style = "Bold Italic" }
 
 [window]
-opacity = 0.75
+opacity = 0.9
+decorations = "buttonless"
+dynamic_padding = false
+
+[window.padding]
+x = 25
+y = 20
+
+[env]
+TERM = "xterm-256color"
