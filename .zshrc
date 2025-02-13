@@ -112,7 +112,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=/opt/homebrew/bin:$PATH
 
 alias vim="nvim"
 alias ls="lsd"
@@ -141,4 +140,49 @@ export PATH="$PATH:$HOME/.foundry/bin"
 activate_nvm() {
     export NVM_DIR="$HOME/.nvm"
       [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+
+    echo "NVM activated"
 }
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=/opt/homebrew/bin:$PATH
+
+# export PATH="/opt/homebrew/anaconda3/bin:$PATH"  # commented out by conda initialize
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# Added by Windsurf
+export PATH="/Users/fatihfurkanhatipoglu/.codeium/windsurf/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/fatihfurkanhatipoglu/.lmstudio/bin"
+
+export LDFLAGS="-L/opt/homebrew/opt/node@20/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@20/include"
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/fatihfurkanhatipoglu/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+PATH=$HOME/.local/bin/scripts:$PATH
+
+bindkey -s ^f "tmux-sessionizer\n"
