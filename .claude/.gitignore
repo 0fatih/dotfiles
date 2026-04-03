@@ -1,0 +1,4 @@
+# Runtime and private data — never commit these
+memory/
+*.jsonl
+stats-cache.json

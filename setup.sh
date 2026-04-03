@@ -39,5 +39,16 @@ else
   link "$DOTFILES/picom.conf"   "$HOME/.config/picom/picom.conf"
 fi
 
+echo "==> Linking MCP config"
+link "$DOTFILES/.mcp.json" "$HOME/.mcp.json"
+
+echo "==> Linking Claude Code configs"
+link "$DOTFILES/.claude/CLAUDE.md"      "$HOME/.claude/CLAUDE.md"
+link "$DOTFILES/.claude/settings.json"  "$HOME/.claude/settings.json"
+link "$DOTFILES/.claude/statusline.sh"  "$HOME/.claude/statusline.sh"
+link "$DOTFILES/.claude/agents"         "$HOME/.claude/agents"
+link "$DOTFILES/.claude/commands"       "$HOME/.claude/commands"
+link "$DOTFILES/.claude/skills"         "$HOME/.claude/skills"
+
 echo ""
 echo "Done. Restart your shell or source ~/.zshrc"
