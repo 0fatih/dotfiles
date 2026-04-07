@@ -2,9 +2,9 @@
 
 ## Process
 
-### 1. Planning & Staging
+### 1. Planning
 
-Break complex work into 3-5 stages. Document in `IMPLEMENTATION_PLAN.md`:
+For multi-file changes: use plan mode, break into 3-5 stages, document in `IMPLEMENTATION_PLAN.md`:
 
 ```markdown
 ## Stage N: [Name]
@@ -13,55 +13,46 @@ Break complex work into 3-5 stages. Document in `IMPLEMENTATION_PLAN.md`:
 **Tests**: [Specific test cases]
 **Status**: [Not Started|In Progress|Complete]
 ```
-- Update status as you progress
-- Remove file when all stages are done
 
-<important if="you are implementing a feature or fixing a bug">
+Update status as you progress. Remove file when all stages are done.
+For single-file or trivial changes: skip the plan, implement directly.
 
 ### 2. Implementation Flow
 
-1. **Understand** - Study existing patterns in codebase
-2. **Test** - Write test first (red)
-3. **Implement** - Minimal code to pass (green)
-4. **Refactor** - Clean up with tests passing
-5. **Commit** - With clear message linking to plan
+1. **Understand** — Study existing patterns in codebase
+2. **Test** — Write test first (red)
+3. **Implement** — Minimal code to pass (green)
+4. **Refactor** — Clean up with tests passing
+5. **Verify** — Run tests and linter; confirm passing before committing
+6. **Commit** — Clear message linking to plan stage
 
-</important>
+### 3. When Stuck
 
-### 3. When Stuck (After 3 Attempts)
+**CRITICAL — maximum 3 attempts per issue, then STOP and report.**
 
-**CRITICAL**: Maximum 3 attempts per issue, then STOP.
+After 3 failures: document what you tried, the exact error, and why it failed. Present findings and ask for direction. Do not loop.
 
-1. **Document what failed**: What you tried, specific error messages, why it failed
-2. **Research alternatives**: Find 2-3 similar implementations, note different approaches
-3. **Question fundamentals**: Is this the right abstraction level? Can this be split into smaller problems?
-4. **Try different angle**: Different library feature? Different pattern? Remove abstraction instead of adding?
-
-## Technical Standards
+## Standards
 
 - Every commit must compile and pass all existing tests
 - Never disable tests — fix them
-- Include tests for new functionality
-- Fail fast with descriptive messages; include context for debugging
-- Handle errors at the appropriate level; never silently swallow exceptions
-- Choose the boring, obvious solution over clever tricks
+- Tests cover behavior, not implementation details
+- No `--no-verify` — ever
+- Scope strictly: no unrequested features, refactors, or "improvements"
+- Boring, obvious solution over clever tricks
 
-## Important Reminders
+## Context Management
 
-**NEVER**:
-- Use `--no-verify` to bypass commit hooks
-- Disable tests instead of fixing them
-- Commit code that doesn't compile
-- Make assumptions — verify with existing code
-- Add features, refactors, or "improvements" beyond what was asked
-
-**ALWAYS**:
-- Commit working code incrementally
-- Update plan documentation as you go
-- Stop after 3 failed attempts and reassess
-- Test behavior, not implementation
+- Use `/clear` between unrelated tasks to prevent context bleed
+- For broad investigation (many files, multiple hypotheses): launch subagents; each gets a narrow, well-scoped question
+- When compacting, preserve: list of modified files, current plan stage, and test commands
 
 ## Tools
 
 ### Context7
-Use `resolve-library-id` then `query-docs` for any library/framework/SDK/API/CLI questions (React, Next.js, Prisma, etc.). Prefer over web search for library docs. Do not use for refactoring, business logic debugging, or general programming concepts.
+Use `resolve-library-id` then `query-docs` for library/framework/SDK/API/CLI questions. Prefer over web search for library docs. Do not use for refactoring, business logic, or general programming concepts.
+
+### Skills
+Load domain-specific skills on demand:
+- `test-driven-development` — TDD workflow detail
+- `context7-mcp` — full Context7 usage guide
