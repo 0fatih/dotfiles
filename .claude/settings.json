@@ -42,6 +42,7 @@
       "Read(~/Library/Application Support/**/solflare*/**)"
     ]
   },
+  "model": "Opus",
   "enableAllProjectMcpServers": false,
   "hooks": {
     "PreToolUse": [
@@ -68,6 +69,5 @@
     "rust-analyzer-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
-  "model": "Opus"
+  "effortLevel": "medium"
 }
